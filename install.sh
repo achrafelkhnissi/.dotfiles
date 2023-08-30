@@ -59,7 +59,7 @@ error() {
 }
 
 info () {
-  echo -e "$BLUE" "==>" "$RESET" "$BOLD" "$1" "$RESET"
+  echo -e "$BLUE""==>" "$RESET" "$BOLD" "$1" "$RESET"
 }
 
 # ---- Main ----
@@ -70,8 +70,9 @@ $CMD update -y
 
 # Install dependencies if Linux
 if [ "$SYSTEM" = "Linux" ]; then
-  info "apt-get install build-essential procps curl file git"
-  apt-get install -y build-essential procps curl file git
+  info "apt-get install build-essential procps curl file git zsh"
+  apt-get install -y build-essential procps curl file git zsh
+  apt-get install -y python3 # dependency for alias_tips
 fi
 
 # Install brew
@@ -89,7 +90,7 @@ git clone --recurse-submodules "$SOURCE" "$TARGET"
 
 # Install oh-my-zsh
 info "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 
 # Install stow for dotfiles
 info "$CMD install -y stow"
@@ -107,4 +108,4 @@ stow --target="$HOME" --dir="$DOTFILES" . || exit 1
 info "chsh -s \"$(which zsh)\""
 chsh -s "$(which zsh)"
 
-print "DONE INSTALLING DOTFILES!"
+print "${BOLD}DONE INSTALLING DOTFILES!"
