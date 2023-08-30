@@ -27,3 +27,5 @@ git submodule update --init
 - [ ] Add aliases and environment variables.
 - [ ] Use `Brewfile` to install all the required packages and applications.
 - [ ] Add `OSX` configuration.
+- [ ] Add `SSH` configuration.
+- [ ] Setup `SSH` keys on a new machine.
