@@ -22,5 +22,5 @@ git submodule update --init
 - [ ] Automate installation of `.dotfiles` on a new machine.
 - [x] Install `brew` without the need to press `Enter` key.
 - [x] Install `oh-my-zsh` without the need to press `Y` key.
----       
 - [x] Make `oh-my-zsh` the default shell without using the interactive script.
+- [ ] Automate the authentication of `copilot.vim` plugin.
