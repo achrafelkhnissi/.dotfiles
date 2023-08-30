@@ -2,3 +2,4 @@ system/
 install.sh
 README.md
 .git/
+.gitmodules

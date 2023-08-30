@@ -1,0 +1,3 @@
+[submodule "alias-tips"]
+	path = alias-tips
+	url = https://github.com/djui/alias-tips
