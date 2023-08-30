@@ -137,5 +137,4 @@ export PATH="/usr/local/lib/ruby/gems/3.2.0/bin:$PATH"
 # This path is where brew installs binaries
 export PATH="/usr/local/bin:$PATH"
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
