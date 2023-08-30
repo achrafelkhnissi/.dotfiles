@@ -75,7 +75,7 @@ ZSH_THEME="minimal" #"mh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  get-extras
+  git-extras
   zsh-autosuggestions
   brew
   docker
