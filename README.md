@@ -11,3 +11,6 @@
 git submodule add https://github.com/djui/alias-tips
 git submodule update --init
 ```
+
+## Todo
+- [ ] Make `copilot.vim` work on a remote server.
