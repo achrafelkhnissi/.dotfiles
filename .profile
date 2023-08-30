@@ -8,5 +8,4 @@ fi
 
 mesg n 2> /dev/null || true
 
-# todo: make it dynamic
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(homebrew/bin/brew shellenv)"
