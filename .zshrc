@@ -87,19 +87,18 @@ plugins=(
   themes
   zsh-syntax-highlighting
   alias-tips
-  zsh-apple-touchbar
+  #zsh-apple-touchbar
   vagrant
-  # zsh_codex
 )
 
 # For zsh_codex
 # bindkey '^X' create_completion
 
 # For docker
-zstyle ':completion:*:*:docker:*' option-stacking yes
-zstyle ':completion:*:*:docker-*:*' option-stacking yes
-
-source $ZSH/oh-my-zsh.sh
+# zstyle ':completion:*:*:docker:*' option-stacking yes
+# zstyle ':completion:*:*:docker-*:*' option-stacking yes
+#
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -127,14 +126,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Rubby
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/lib/ruby/gems/3.2.0/bin:$PATH"
-
-
 # This path is where brew installs binaries
 export PATH="/usr/local/bin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
