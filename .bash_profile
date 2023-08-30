@@ -6,3 +6,6 @@ do
 #     [ -f $HOME/$DOTFILE ] && source $HOME/$DOTFILE
     [ -f $HOME/$DOTFILE ] && echo $HOME/$DOTFILE
 done
+
+# Change it to be dynamic
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
