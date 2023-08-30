@@ -1,5 +1,10 @@
 # .dotfiles
 
+## Installation
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/achrafelkhnissi/.dotfiles/main/install.sh)"
+```
+
 ## References
 - [Getting Started with Dotfiles](https://driesvints.com/blog/getting-started-with-dotfiles/)
 - [Aweome dotfiles](https://project-awesome.org/webpro/awesome-dotfiles)

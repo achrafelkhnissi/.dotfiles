@@ -108,4 +108,9 @@ stow --target="$HOME" --dir="$DOTFILES" . || exit 1
 info "chsh -s \"$(which zsh)\""
 chsh -s "$(which zsh)"
 
+
+# ---- Install Vim ----
+info "Installing vim"
+brew install vim || exit 1
+
 print "${BOLD}DONE INSTALLING DOTFILES!"
