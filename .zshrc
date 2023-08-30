@@ -95,10 +95,10 @@ plugins=(
 # bindkey '^X' create_completion
 
 # For docker
-# zstyle ':completion:*:*:docker:*' option-stacking yes
-# zstyle ':completion:*:*:docker-*:*' option-stacking yes
-#
-# source $ZSH/oh-my-zsh.sh
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
