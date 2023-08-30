@@ -10,9 +10,6 @@
 [submodule ".vim/plugged/fzf"]
 	path = .vim/plugged/fzf
 	url = https://github.com/junegunn/fzf
-[submodule ".oh-my-zsh/custom/themes/powerlevel10k"]
-	path = .oh-my-zsh/custom/themes/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k
 [submodule ".vim/pack/github/start/copilot.vim"]
 	path = .vim/pack/github/start/copilot.vim
 	url = https://github.com/github/copilot.vim
