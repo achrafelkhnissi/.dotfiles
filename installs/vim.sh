@@ -32,7 +32,7 @@ fi
 # If vim version is less than if less than 9.0, install vim
 if [ $(echo "$VIM_VERSION < 9.0" | bc -l) -eq 1 ]; then
   echo "Installing vim..."
-  git clone git clone https://github.com/vim/vim.git ~/vim
+  git clone https://github.com/vim/vim.git ~/vim
   cd ~/vim || echo "Error: vim directory not found" && exit 1
   cd src || echo "Error: vim/src directory not found" && exit 1
   make && make install || "Error: vim installation failed" && exit 1
