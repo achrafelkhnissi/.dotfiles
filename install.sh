@@ -110,7 +110,9 @@ chsh -s "$(which zsh)"
 
 
 # ---- Install Vim ----
-info "Installing vim"
-brew install vim || exit 1
+if ! is_executable "vim"; then
+  info "Installing vim"
+  brew install vim || exit 1
+fi 
 
 print "${BOLD}DONE INSTALLING DOTFILES!"
