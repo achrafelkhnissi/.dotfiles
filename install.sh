@@ -19,7 +19,7 @@ DOTFILES="$HOME/.dotfiles"
 SYSTEM=$(uname -s)
 CMD=""
 BREW_PATH=""
-YES=""
+OPT=""
 
 if [ "$SYSTEM" = "Darwin" ]; then
   CMD="brew"
@@ -27,7 +27,7 @@ if [ "$SYSTEM" = "Darwin" ]; then
 elif [ "$SYSTEM" = "Linux" ]; then
   CMD="apt-get"
   BREW_PATH="/home/linuxbrew/.linuxbrew/Homebrew"
-  YES="-y"
+  OPT="-y"
 else
   printf "%sUnsupported system%s\n" "$RED" "$RESET"
   exit 1
@@ -49,6 +49,16 @@ function remove_existing() {
 # Check if a command exists
 is_executable() {
   type "$1" > /dev/null 2>&1
+}
+
+install_ohmyzsh() {
+#  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+  info "Installing oh-my-zsh"
+  git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+}
+
+install_stow() {
+  $CMD install $OPT stow || exit 1
 }
 
 print() {
@@ -92,11 +102,13 @@ git clone --recurse-submodules "$SOURCE" "$TARGET"
 
 # Install oh-my-zsh
 info "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+install_ohmyzsh
 
 # Install stow for dotfiles
 info "$CMD install -y stow"
-$CMD install $YES stow
+if ! is_executable "stow"; then
+  install_stow
+fi
 
 # Remove existing dotfiles
 info "Remove existing dotfiles"
@@ -108,7 +120,9 @@ stow --target="$HOME" --dir="$DOTFILES" . || exit 1
 
 # Make zsh default shell
 info "chsh -s \"$(which zsh)\""
-chsh -s "$(which zsh)"
+if [ "$SHELL" != "$(which zsh)" ]; then
+  chsh -s "$(which zsh)"
+fi
 
 # ---- Install Vim ----
 if ! is_executable "vim"; then
