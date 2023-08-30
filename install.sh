@@ -19,6 +19,7 @@ DOTFILES="$HOME/.dotfiles"
 SYSTEM=$(uname -s)
 CMD=""
 BREW_PATH=""
+YES=""
 
 if [ "$SYSTEM" = "Darwin" ]; then
   CMD="brew"
@@ -26,6 +27,7 @@ if [ "$SYSTEM" = "Darwin" ]; then
 elif [ "$SYSTEM" = "Linux" ]; then
   CMD="apt-get"
   BREW_PATH="/home/linuxbrew/.linuxbrew/Homebrew"
+  YES="-y"
 else
   printf "%sUnsupported system%s\n" "$RED" "$RESET"
   exit 1
@@ -66,7 +68,7 @@ info () {
 
 # Update package manager
 info "$CMD update -y"
-$CMD update -y
+$CMD update $YES
 
 # Install dependencies if Linux
 if [ "$SYSTEM" = "Linux" ]; then
@@ -94,7 +96,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # Install stow for dotfiles
 info "$CMD install -y stow"
-$CMD install -y stow
+$CMD install $YES stow
 
 # Remove existing dotfiles
 info "Remove existing dotfiles"
@@ -107,7 +109,6 @@ stow --target="$HOME" --dir="$DOTFILES" . || exit 1
 # Make zsh default shell
 info "chsh -s \"$(which zsh)\""
 chsh -s "$(which zsh)"
-
 
 # ---- Install Vim ----
 if ! is_executable "vim"; then
