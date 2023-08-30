@@ -23,4 +23,4 @@ git submodule update --init
 - [x] Install `brew` without the need to press `Enter` key.
 - [x] Install `oh-my-zsh` without the need to press `Y` key.
 ---       
-- [ ] Make `oh-my-zsh` the default shell without using the interactive script.
+- [x] Make `oh-my-zsh` the default shell without using the interactive script.
