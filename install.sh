@@ -1,50 +1,98 @@
 #!/usr/bin/env bash
 
-# Check if system is macOS or Linux
+# ---- Colors ----
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+YELLOW="\033[0;33m"
+RESET="\033[0m"
+
+# ---- Variables ----
+SOURCE="https://github.com/achrafelkhnissi/.dotfiles.git"
+TARGET="$HOME/.dotfiles"
 SYSTEM=$(uname -s)
 CMD=""
 
 if [ "$SYSTEM" = "Darwin" ]; then
-  CMD="brew install"
+  CMD="brew"
 elif [ "$SYSTEM" = "Linux" ]; then
-  CMD="sudo apt-get install"
+  CMD="apt-get"
 else
-  echo "Unsupported system"
+  printf "%sUnsupported system%s\n" "$RED" "$RESET"
   exit 1
 fi
 
-# Update App Store apps
-#sudo softwareupdate -i -a
+# ---- Functions ----
 
-# Update Homebrew (Cask) & packages
-#brew update
-#brew upgrade
+# Remove existing dotfiles
+function remove_existing() {
+  for file in .[^.]*; do
+    if [ -f "$HOME/$file" ] || [ -d "$HOME/$file" ]; then
+      rm -rf "$HOME/$file:?"
+    fi
+  done
+}
 
-# Update npm & packages
-#npm install npm -g
-#npm update -g
-
-SOURCE="https://github.com/achrafelkhnissi/.dotfiles.git"
-TARGET="$HOME/.dotfiles"
-
+# Check if a command exists
 is_executable() {
   type "$1" > /dev/null 2>&1
 }
 
-if is_executable "git"; then
-  CMD="git clone $SOURCE $TARGET"
+print() {
+  echo -e "$GREEN" "$1" "$RESET"
+}
+
+error() {
+  echo -e "$RED" "$1" "$RESET"
+}
+
+# ---- Main ----
+
+# Update package manager
+print "Updating package manager..."
+$CMD update -y
+print "Done"
+
+# Install brew dependencies [Git, Curl, Zsh]
+if ! is_executable "git"; then
+  print "Installing git..."
+  $CMD install -y git
+  print "Done"
 fi
 
-if [ -z "$CMD" ]; then
-  echo "Git not available. Aborting."
-else
-  echo "Installing dotfiles..."
-  mkdir -p "$TARGET"
-  eval "$CMD"
+
+
+if ! is_executable "curl"; then
+  print "Installing curl..."
+  $CMD install -y curl
+  print "Done"
 fi
 
-cd "$TARGET" || exit 1
+if ! is_executable "zsh"; then
+  print "Installing zsh..."
+  $CMD install -y zsh
+  print "Done"
+fi
+
+# Install brew
+if ! is_executable "brew"; then
+  print "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    $CMD install -y procps
+    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> "$HOME"/.profile
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    source "$HOME"/.profile
+  print "Done"
+fi
+
+# Clone dotfiles
+print "Cloning dotfiles..."
+git clone "$SOURCE" "$TARGET"
+print "Done"
+
+cd "$TARGET" || error "Couldn't cd into $TARGET" && exit 1
+print "Updated submodules..."
 git submodule update --init --recursive # install submodules
+print "Done"
 
 # Install Homebrew
 if [ "$SYSTEM" = "Darwin" ]; then
@@ -52,18 +100,28 @@ if [ "$SYSTEM" = "Darwin" ]; then
   # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   # Install Homebrew packages
-  brew bundle --file="$TARGET/system/Brewfile"
-  exit 0
-else 
-    sudo apt-get update
-    $CMD zsh
+  # brew bundle --file="$TARGET/system/Brewfile"
+  echo ;
 fi
 
 # Install oh-my-zsh
+print "Installing oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+print "Done"
 
 # Install stow for dotfiles
-$CMD stow
+print "Installing stow..."
+$CMD install -y stow
+print "Done"
+
+# Remove existing dotfiles
+print "Removing existing dotfiles..."
+remove_existing
+print "Done"
 
 # Use stow to symlink dotfiles
+print "Symlinking dotfiles..."
 stow --dir="$TARGET" --target="$HOME" --restow zsh
+print "Done"
+
+print "DONE INSTALLING DOTFILES!"
