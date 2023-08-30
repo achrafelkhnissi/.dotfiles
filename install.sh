@@ -48,7 +48,8 @@ git submodule update --init --recursive # install submodules
 
 # Install Homebrew
 if [ "$SYSTEM" = "Darwin" ]; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # Change this with proper installation
+  # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   # Install Homebrew packages
   brew bundle --file="$TARGET/system/Brewfile"
