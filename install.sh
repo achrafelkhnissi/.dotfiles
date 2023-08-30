@@ -98,6 +98,10 @@ fi
 
 # Clone dotfiles
 info "git clone --recurse-submodules $SOURCE $TARGET"
+if [ -d "$TARGET" ]; then
+  info "rm -rf $TARGET"
+  rm -rf "$TARGET"
+fi
 git clone --recurse-submodules "$SOURCE" "$TARGET"
 
 # Install oh-my-zsh
