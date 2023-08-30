@@ -13,4 +13,7 @@ git submodule update --init
 ```
 
 ## Todo
-- [ ] Make `copilot.vim` work on a remote server.
+- [x] Make `copilot.vim` work on a remote server.
+- [ ] Automate installation of `.dotfiles` on a new machine.
+- [ ] Install `brew` without the need to press `Enter` key.
+- [ ] Install `oh-my-zsh` without the need to press `Y` key.
