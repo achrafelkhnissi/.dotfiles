@@ -29,3 +29,9 @@ git submodule update --init
 - [ ] Add `OSX` configuration.
 - [ ] Add `SSH` configuration.
 - [ ] Setup `SSH` keys on a new machine.
+
+### FZF
+- [ ] Add `fzf` configuration.
+- [ ] Add `fzf` key bindings.
+- [ ] Add `fzf` key bindings for `vim`.
+- [ ] Make `fzf` search content of files.

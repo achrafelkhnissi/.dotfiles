@@ -3,7 +3,7 @@ let mapleader = "\<Space>"  " Set leader to space
 
 nnoremap <leader>s :w!<CR>
 nnoremap <leader>q :q!<CR>
-nnoremap <leader>f :FZF<CR>
+nnoremap <leader>f :FZF --exact<CR>
 inoremap <leader>e <Esc>
 nnoremap <leader>r :source %
 
