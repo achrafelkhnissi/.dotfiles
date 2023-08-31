@@ -11,7 +11,6 @@ BOLD="\033[1m"
 UNDERLINE="\033[4m"
 RESET="\033[0m"
 
-
 # ---- Variables ----
 SOURCE="https://github.com/achrafelkhnissi/.dotfiles.git"
 TARGET="$HOME/.dotfiles"
@@ -20,14 +19,17 @@ SYSTEM=$(uname -s)
 CMD=""
 BREW_PATH=""
 OPT=""
+NODE=""
 
 if [ "$SYSTEM" = "Darwin" ]; then
   CMD="brew"
   BREW_PATH="/usr/local/Homebrew/"
+  NODE="node"
 elif [ "$SYSTEM" = "Linux" ]; then
   CMD="apt-get"
   BREW_PATH="/home/linuxbrew/.linuxbrew/Homebrew"
   OPT="-y"
+  NODE="nodejs"
 else
   printf "%sUnsupported system%s\n" "$RED" "$RESET"
   exit 1
@@ -83,13 +85,13 @@ $CMD update $YES
 
 # Install dependencies if Linux
 if [ "$SYSTEM" = "Linux" ]; then
-  info "apt-get install build-essential procps curl file git zsh"
+  info "apt-get -y install build-essential procps curl file git zsh"
   apt-get install -y build-essential procps curl file git zsh
-  apt-get install -y python3 # dependency for alias_tips
+  apt-get install -y python3
 fi
 
 # Install brew
-if ! is_executable "brew"; then
+if ! is_executable "brew" && [ "$SYSTEM" = "Darwin" ]; then
   # https://github.com/Homebrew/install
   info "Installing brew"
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -132,7 +134,12 @@ fi
 # ---- Install Vim ----
 if ! is_executable "vim"; then
   info "Installing vim"
-  brew install vim || exit 1
-fi 
+  $CMD install $OPT vim
+fi
+
+if ! is_executable "$NODE"; then
+  info "Installing nodejs"
+  $CMD install $OPT $NODE
+fi
 
 print "${BOLD}DONE INSTALLING DOTFILES!"

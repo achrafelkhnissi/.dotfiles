@@ -1,0 +1,48 @@
+tap "homebrew/bundle"
+tap "lotyp/homebrew-formulae"
+
+# core/dotfiles
+brew "coreutils"
+brew "stow"
+
+# fs/network
+brew "bat"
+brew "tree"
+
+# search/grep/diff
+brew "fzf"
+brew "gnu-sed"
+brew "jq"
+
+# languages/tools
+brew "gh"
+brew "shellcheck"
+
+# Casks
+cask "1password"
+cask "google-chrome"
+cask "iterm2"
+cask "karabiner-elements"
+cask "slack"
+cask "spotify"
+cask "visual-studio-code"
+cask "zoomus"
+cask "jetbrains-toolbox"
+cask "CLion"
+cask "WebStorm"
+cask "DevToys"
+cask "GitKraken"
+cask "Postman"
+cask "Github Desktop"
+cask "Docker" # Docker Desktop
+cask "App Cleaner"
+cask "Rectangle"
+cask "Figma"
+cask "Discord"
+cask "Obsidian"
+cask "WhatsApp"
+cask "Shazam"
+cask "Warp"
+cask "TickTick"
+cask "Termius"
+cask "VirtualBox"
