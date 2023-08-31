@@ -135,3 +135,5 @@ export PATH="/usr/local/bin:$PATH"
 # --> https://github.com/junegunn/fzf/wiki/examples
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview-window=right:60% --preview "bat --color=always --style=header,grid --line-range :500 {}"'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

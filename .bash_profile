@@ -9,3 +9,7 @@ done
 
 # Change it to be dynamic
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Load .bashrc
+[ -f $HOME/.bashrc ] && source $HOME/.bashrc
+
