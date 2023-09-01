@@ -64,3 +64,7 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 let g:ycm_key_list_select_completion = ['<leader>Tab']
 let g:ycm_key_list_previous_completion = ['<leader>Tab']
+
+" Syntastic
+let g:syntastic_python_checkers = ['pycodestyle']
+
