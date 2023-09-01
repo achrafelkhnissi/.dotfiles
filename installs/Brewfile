@@ -1,25 +1,26 @@
 tap "homebrew/bundle"
 tap "lotyp/homebrew-formulae"
 
-# core/dotfiles
+# ==> Formulae
 brew "coreutils"
 brew "stow"
-
-# fs/network
 brew "bat"
 brew "tree"
-
-# search/grep/diff
 brew "fzf"
 brew "gnu-sed"
 brew "jq"
-
-# languages/tools
 brew "gh"
 brew "shellcheck"
+brew "vim"
+brew "node"
+brew "docker"
+brew "the-silver-searcher" # ag for fzf
+brew "ripgrep" # rg for fzf
 
-# Casks
-cask "1password"
+# ==>  Casks
+cask "1password-cli"
+
+# TODO: to be tested
 cask "google-chrome"
 cask "iterm2"
 cask "karabiner-elements"
