@@ -11,4 +11,4 @@ nnoremap <leader>r :source %
 "let g:copilot_no_tab_map = v:true
 
 " Comment line
-nnoremap <leader>/ :call CommentLine()<CR>
+noremap <leader>/ :call CommentLine()<CR>
