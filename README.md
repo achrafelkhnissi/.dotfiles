@@ -39,4 +39,5 @@ git submodule update --init
 
 ### Vim
 - [ ] Install the syyntax checkers required by `syntaticz` plugin.
+- [ ] Fix `undodir` and `plugged` being tracked by `git`.
 
