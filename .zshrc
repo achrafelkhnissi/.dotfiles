@@ -137,3 +137,5 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --preview-window
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[[ -d  ~/.vim/undodir ]] || mkdir -p ~/.vim/undodir
