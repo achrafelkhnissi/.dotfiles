@@ -30,14 +30,12 @@ git submodule update --init
 - [ ] Add `SSH` configuration.
 - [ ] Setup `SSH` keys on a new machine.
 
-
-### FZF
+#### FZF
 - [ ] Add `fzf` configuration.
 - [ ] Add `fzf` key bindings.
 - [ ] Add `fzf` key bindings for `vim`.
 - [ ] Make `fzf` search content of files.
 
-### Vim
-- [ ] Install the syyntax checkers required by `syntaticz` plugin.
+#### Vim
+- [ ] Install the syntax checkers required by `syntastic` plugin.
 - [ ] Fix `undodir` and `plugged` being tracked by `git`.
-
