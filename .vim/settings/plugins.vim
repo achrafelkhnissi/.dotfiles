@@ -23,4 +23,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 
+" LSP 
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
+
 call plug#end()
