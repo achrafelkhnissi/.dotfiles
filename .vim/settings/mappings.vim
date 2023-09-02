@@ -25,3 +25,40 @@ nnoremap <leader>r :!%<CR>
 
 " Open terminal
 nnoremap <leader>t :terminal<CR>
+
+" Esc
+imap fj <Esc>
+imap jf <Esc>
+
+" Command-mode
+nnoremap ; :
+
+" Disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" Navigation
+noremap K {
+noremap J }
+noremap L 0
+noremap H $
+
+" Insert mode navigation
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+" Indentation
+map <Tab> >>
+map <S-Tab> <<
+
+" Move lines
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
