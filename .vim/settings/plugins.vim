@@ -15,7 +15,6 @@ call plug#begin()
 
 Plug 'junegunn/vim-plug'
 Plug 'github/copilot.vim'
-" Plug 'Valloric/YouCompleteMe'
 Plug 'vim-syntastic/syntastic'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -25,4 +24,3 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
-
