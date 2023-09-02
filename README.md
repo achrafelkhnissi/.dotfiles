@@ -29,6 +29,7 @@ git submodule update --init
 - [ ] Add `OSX` configuration.
 - [ ] Add `SSH` configuration.
 - [ ] Setup `SSH` keys on a new machine.
+- [ ] Check [this](https://cbrgm.net/post/2021-05-5-setup-macos/)
 
 #### FZF
 - [ ] Add `fzf` configuration.
