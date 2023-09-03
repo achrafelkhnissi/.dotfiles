@@ -81,3 +81,14 @@ if [ -x "$(command -v colorls)" ]; then
     alias ls="colorls"
     alias la="colorls -al"
 fi
+
+# Logo-ls
+if [ -x "$(command -v logo-ls)" ]; then
+    alias ls='logo-ls'
+    alias la='logo-ls -A'
+    alias ll='logo-ls -al'
+    # equivalents with Git Status on by Default
+    alias lsg='logo-ls -D'
+    alias lag='logo-ls -AD'
+    alias llg='logo-ls -alD'
+fi
