@@ -142,4 +142,11 @@ if ! is_executable "$NODE"; then
   $CMD install $OPT $NODE
 fi
 
+# Enable touchid for sudo if MacOS
+if [ "$SYSTEM" = "Darwin" ]; then
+  info "Enable touchid for sudo"
+  #sudo sed -i '' 's/# %wheel\tALL=(ALL) ALL/%wheel\tALL=(ALL) ALL/g' /etc/sudoers
+  # Add "auth       sufficient     pam_tid.so" to /etc/pam.d/sudo
+fi
+
 print "${BOLD}DONE INSTALLING DOTFILES!"
