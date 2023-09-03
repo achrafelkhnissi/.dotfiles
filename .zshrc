@@ -77,18 +77,18 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Colorls
-if [ -x "$(command -v colorls)" ]; then
-    alias ls="colorls"
-    alias la="colorls -al"
-fi
+#if [ -x "$(command -v colorls)" ]; then
+#    alias ls="colorls"
+#    alias la="colorls -al"
+#fi
 
 # Logo-ls
-if [ -x "$(command -v logo-ls)" ]; then
-    alias ls='logo-ls'
-    alias la='logo-ls -A'
-    alias ll='logo-ls -al'
+#if [ -x "$(command -v logo-ls)" ]; then
+#    alias ls='logo-ls'
+#    alias la='logo-ls -A'
+#    alias ll='logo-ls -al'
     # equivalents with Git Status on by Default
-    alias lsg='logo-ls -D'
-    alias lag='logo-ls -AD'
-    alias llg='logo-ls -alD'
-fi
+#    alias lsg='logo-ls -D'
+#    alias lag='logo-ls -AD'
+#    alias llg='logo-ls -alD'
+#fi
