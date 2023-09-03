@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 tap "lotyp/homebrew-formulae"
+tap "homebrew/cask-fonts"
 
 # ==> Formulae
 brew "coreutils"
