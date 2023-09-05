@@ -4,6 +4,7 @@ tap "homebrew/cask-fonts"
 
 # ==> Formulae
 brew "coreutils"
+brew "moreutils"
 brew "stow"
 brew "bat"
 brew "tree"
