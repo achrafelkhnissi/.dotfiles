@@ -92,3 +92,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 #    alias lag='logo-ls -AD'
 #    alias llg='logo-ls -alD'
 #fi
+
+# For coreutils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
