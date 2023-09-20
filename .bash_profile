@@ -13,3 +13,6 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Load .bashrc
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc
 
+if [ -d "/Users/ael-khni/goinfre" ] ; then
+    source /Users/ael-khni/.docker/init-bash.sh || true # Added by Docker Desktop
+fi
