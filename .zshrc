@@ -95,3 +95,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # For coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+if [ -d "/Users/ael-khni/goinfre" ] ; then
+  source /Users/ael-khni/.docker/init-zsh.sh || true # Added by Docker Desktop
+fi
