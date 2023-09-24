@@ -99,3 +99,5 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 if [ -d "/Users/ael-khni/goinfre" ] ; then
   source /Users/ael-khni/.docker/init-zsh.sh || true # Added by Docker Desktop
 fi
+
+bindkey '^I^I' autosuggest-accept  # shift + tab  | autosuggest
