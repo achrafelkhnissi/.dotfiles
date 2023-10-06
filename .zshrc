@@ -104,6 +104,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/goinfre/ael-khni/homebrew/opt/nvm/nvm.sh" ] && \. "/goinfre/ael-khni/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/goinfre/ael-khni/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/goinfre/ael-khni/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-
 export PATH="${HOME}/bin:$PATH"
 
+bindkey '^I^I' autosuggest-accept  # shift + tab  | autosuggest
