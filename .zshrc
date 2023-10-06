@@ -99,3 +99,11 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 if [ -d "/Users/ael-khni/goinfre" ] ; then
   source /Users/ael-khni/.docker/init-zsh.sh || true # Added by Docker Desktop
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/goinfre/ael-khni/homebrew/opt/nvm/nvm.sh" ] && \. "/goinfre/ael-khni/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/goinfre/ael-khni/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/goinfre/ael-khni/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+export PATH="${HOME}/bin:$PATH"
+
